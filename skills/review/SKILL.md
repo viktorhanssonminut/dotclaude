@@ -142,42 +142,55 @@ Create an agent team with **four specialized reviewers** and yourself as team le
 
 ## Step 5: Collect and Present Findings
 
-Once all teammates have reported back, compile their findings into a single numbered list. Group by reviewer and severity:
+Once all teammates have reported back, compile their findings into a single numbered list. **Output must be valid GitHub-flavored markdown** — use proper headings (`#`, `##`, `###`), fenced code blocks for any code snippets, and backticks for inline file paths / identifiers. Do not use `===` or `---` as section separators (use headings instead). Do not wrap the whole report in a code fence.
 
-```
-=== CODE REVIEW: <Title or Summary> ===
+Use this structure exactly:
 
-Mode: <PR #123 | Commit abc1234 | Working Tree>
-Ticket: <ticket number> -- <brief summary> (or "No ticket found")
+````markdown
+# Code Review: <Title or Summary>
 
---- BUG HUNTER ---
-[1] Critical - src/api/users.ts:45
-    Bug: Array index not bounds-checked, will crash on empty input
-    Impact: Runtime error in production
+**Mode:** <PR #123 | Commit `abc1234` | Working Tree>
+**Ticket:** <ticket number> — <brief summary> (or _No ticket found_)
 
---- REQUIREMENTS VALIDATOR ---
-[2] Gap - src/components/Form.tsx
-    Requirement: "User should see validation errors inline"
-    Status: Validation errors only shown as toast, not inline
+## Bug Hunter
 
---- SECURITY AUDITOR ---
-[3] High - src/api/search.ts:34
-    Vulnerability: User input interpolated directly into SQL query
-    Fix: Use parameterized query
+1. **Critical** — `src/api/users.ts:45`
+   - **Bug:** Array index not bounds-checked, will crash on empty input.
+   - **Impact:** Runtime error in production.
 
---- CONVENTION CHECKER ---
-[4] Style - src/services/OrderService.ts:1
-    Convention: Service files should use kebab-case naming
-    Should be: order-service.ts
+## Requirements Validator
 
-=== SUMMARY ===
-- Bugs: N (breakdown by severity)
-- Requirements gaps: N
-- Security issues: N (breakdown by severity)
-- Convention violations: N
+2. **Gap** — `src/components/Form.tsx`
+   - **Requirement:** "User should see validation errors inline"
+   - **Status:** Validation errors only shown as toast, not inline.
 
-Overall: <Ready to ship | Needs changes | Major rework needed>
-```
+## Security Auditor
+
+3. **High** — `src/api/search.ts:34`
+   - **Vulnerability:** User input interpolated directly into SQL query.
+   - **Fix:** Use a parameterized query.
+
+## Convention Checker
+
+4. **Style** — `src/services/OrderService.ts:1`
+   - **Convention:** Service files should use kebab-case naming.
+   - **Should be:** `order-service.ts`
+
+## Summary
+
+- **Bugs:** N (breakdown by severity)
+- **Requirements gaps:** N
+- **Security issues:** N (breakdown by severity)
+- **Convention violations:** N
+
+**Overall:** <Ready to ship | Needs changes | Major rework needed>
+````
+
+Rules for the output:
+- If a reviewer has no findings, still include their `##` section with a single line like `_No findings._` — never omit sections silently (except the Requirements Validator when no ticket was found; in that case include the section with `_Skipped — no ticket context available._`).
+- Always wrap file paths, identifiers, env vars, and line refs in backticks.
+- Use fenced code blocks (```lang) for any multi-line code suggestions.
+- Never emit bare `===` / `---` separators — they render inconsistently and break markdown structure.
 
 ## Step 6: Post Comments (PR Mode Only)
 
