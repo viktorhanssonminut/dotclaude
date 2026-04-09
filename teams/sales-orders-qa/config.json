@@ -1,0 +1,19 @@
+{
+  "name": "sales-orders-qa",
+  "description": "QA and bug fixes for MON-2288 sales orders feature",
+  "createdAt": 1772563057548,
+  "leadAgentId": "team-lead@sales-orders-qa",
+  "leadSessionId": "f95160cc-391d-4a4e-95a4-0215d4d565d0",
+  "members": [
+    {
+      "agentId": "team-lead@sales-orders-qa",
+      "name": "team-lead",
+      "agentType": "team-lead",
+      "model": "claude-opus-4-6",
+      "joinedAt": 1772563057548,
+      "tmuxPaneId": "",
+      "cwd": "/Users/viktor.hansson/git/web-app/.claude/worktrees/sales-orders-web",
+      "subscriptions": []
+    }
+  ]
+}

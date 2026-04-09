@@ -1,0 +1,33 @@
+# Credentials & local-only config
+.credentials.json
+settings.local.json
+policy-limits.json
+mcp-needs-auth-cache.json
+stats-cache.json
+history.jsonl
+
+# Conversation / session state
+projects/
+sessions/
+session-env/
+shell-snapshots/
+todos/
+tasks/
+plans/
+file-history/
+paste-cache/
+ide/
+
+# Caches & transient data
+cache/
+chrome/
+backups/
+debug/
+telemetry/
+usage-data/
+
+# Installed plugins
+plugins/
+
+# Team runtime state (keep config.json, drop inbox message logs)
+teams/*/inboxes/

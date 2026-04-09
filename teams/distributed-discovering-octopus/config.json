@@ -1,0 +1,19 @@
+{
+  "name": "distributed-discovering-octopus",
+  "description": "QA testing team for sales orders 6 issue fixes",
+  "createdAt": 1772636558055,
+  "leadAgentId": "team-lead@distributed-discovering-octopus",
+  "leadSessionId": "f41c4e4d-67d5-47d3-9c5b-ec493b48c7f5",
+  "members": [
+    {
+      "agentId": "team-lead@distributed-discovering-octopus",
+      "name": "team-lead",
+      "agentType": "team-lead",
+      "model": "claude-opus-4-6",
+      "joinedAt": 1772636558055,
+      "tmuxPaneId": "",
+      "cwd": "/Users/viktor.hansson/git/web-app/.claude/worktrees/sales-orders-web",
+      "subscriptions": []
+    }
+  ]
+}
